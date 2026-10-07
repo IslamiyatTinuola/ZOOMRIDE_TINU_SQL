@@ -1,0 +1,51 @@
+# ZoomRide SQL Project
+
+## Project overview
+
+This project uses SQL to explore and clean ZoomRide trip data. It answers questions about trip volumes, revenue, monthly ride activity, vehicle types, duplicate records, missing fares, and customers who have never booked a trip.
+
+## Database
+
+The project uses MySQL and includes three tables:
+
+- `trips` — trip details, including customer, driver, city, date, distance, fare, and status
+- `drivers` — driver details and vehicle types
+- `customers` — customer names and account details
+
+The supplied data contains 300 trip records, including inconsistent city names, duplicate trips, and completed trips with missing fares.
+
+## What the project does
+
+- Counts trips and finds the longest completed trips
+- Groups trips by city and identifies inconsistent city names
+- Finds duplicate records and completed trips with missing fares
+- Standardises city names and removes duplicate rows
+- Calculates revenue by city, month, and vehicle type
+- Identifies customers who have never booked a trip
+- Finds the top three customers by spending on completed trips
+
+## Key findings
+
+- After cleaning, the trips table contains **298 rows** across six cities.
+- **Lagos** has the highest city revenue, with **₦218,890**.
+- **December 2025** has the highest monthly revenue, with **₦66,980**.
+- **Economy** vehicles have the highest revenue by vehicle type, with **₦262,550**.
+- **Nine completed trips** have missing fares. These fares were left unchanged.
+- Four customers have never booked a trip.
+
+## How to run
+
+1. Open a MySQL environment, such as [OneCompiler MySQL](https://onecompiler.com/mysql).
+2. Paste the setup script into the editor and run it to create the tables and load the data.
+3. Add the project queries below the `YOUR QUERIES START HERE` line.
+4. Run the queries in order. The cleaning queries should run before the revenue and customer analysis queries.
+
+## SQL concepts used
+
+`SELECT`, `WHERE`, `COUNT`, `GROUP BY`, `HAVING`, `ORDER BY`, `LIMIT`, `UPDATE`, `DELETE`, `INNER JOIN`, `LEFT JOIN`, `SUM`, `AVG`, `ROUND`, `MIN`, `MAX`, `TRIM`, `IS NULL`, and `DATE_FORMAT`.
+
+## Notes
+
+- Revenue analysis uses completed trips only.
+- Missing fares remain `NULL`; no fare values were invented.
+- The cleanup keeps the first record in each duplicate pair and removes the later copy.
